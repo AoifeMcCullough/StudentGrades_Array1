@@ -93,5 +93,41 @@ namespace StudentGrades_Array
             txtMaths.Text = "";
             txtScience.Text = "";
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //check records entered
+            if (intRecordCount == 0)
+            {
+                MessageBox.Show("No records entered ");
+                return;
+            }
+            //search through array
+            for (int intLoopCounter = 0;
+                intLoopCounter < intRecordCount; intLoopCounter++)
+            {
+                if (txtSearchNumber.Text.Equals
+                    (strStudentNumber[intLoopCounter]))
+                {
+                    txtStudent_Name.Text = "" + strStudentName[intLoopCounter];
+                    txtStudent_Number.Text = "" + strStudentNumber[intLoopCounter];
+                    txt_Group.Text = "" + strGroup[intLoopCounter];
+                    txtEnglishMark.Text = "" + intEnglish[intLoopCounter];
+                    txtMathsMark.Text = "" + intMaths[intLoopCounter];
+                    txtScienceMark.Text = "" + intScience[intLoopCounter];
+                    //Add additional code to display all values
+                    intRecord = intLoopCounter;
+                    return;
+                }
+            }
+            MessageBox.Show("No match found");
+        }
+
+
     }
 }
