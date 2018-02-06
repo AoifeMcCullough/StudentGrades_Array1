@@ -121,7 +121,7 @@ namespace StudentGrades_Array
                     txtMathsMark.Text = "" + intMaths[intLoopCounter];
                     txtScienceMark.Text = "" + intScience[intLoopCounter];
                     //Add additional code to display all values
-                    intRecord = intLoopCounter;
+                    intRecordCount = intLoopCounter;
                     return;
                 }
             }
