@@ -128,6 +128,25 @@ namespace StudentGrades_Array
             MessageBox.Show("No match found");
         }
 
+        private void lbl_StudentDetails_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            //Calculate Average Mark
+            intLoopCounter = intRecordCount - 1;
+            fAverage = AverageMark(intEnglish[intRecordCount], intMaths[intRecordCount], intScience[intRecordCount]);
+
+
+            //Calculate Average Mark
+            strGrade = CalculateGrade(fAverage);
+
+
+            //Display Result Details
+            DisplayDetails();
+
+        }
     }
 }
