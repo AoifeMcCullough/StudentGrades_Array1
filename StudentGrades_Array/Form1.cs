@@ -16,5 +16,10 @@ namespace StudentGrades_Array
         {
             InitializeComponent();
         }
+
+        private void txtStudentNumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
