@@ -26,6 +26,8 @@ namespace StudentGrades_Array
         private static int intLoopCounter = 0;
         private static float fAverage = 0;
         private static String strGrade = "";
+        private static int intRecord = 0;
+
 
 
         public FrmStudentGrades()
@@ -128,16 +130,13 @@ namespace StudentGrades_Array
             MessageBox.Show("No match found");
         }
 
-        private void lbl_StudentDetails_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             //Calculate Average Mark
-            intLoopCounter = intRecordCount - 1;
-            fAverage = AverageMark(intEnglish[intRecordCount], intMaths[intRecordCount], intScience[intRecordCount]);
+            //intLoopCounter = intRecordCount - 1;
+            fAverage = AverageMark(intEnglish[intRecord], intMaths[intRecord], intScience[intRecord]);
 
 
             //Calculate Average Mark
@@ -147,6 +146,80 @@ namespace StudentGrades_Array
             //Display Result Details
             DisplayDetails();
 
+        }
+        //Function to calculate Average Mark
+        public float AverageMark(int intNumber1, int intNumber2, int intNumber3)
+        {
+
+
+            float Average = (float)(intNumber1 + intNumber2 + intNumber3) / 3;
+            return Average;
+
+        }
+        //Function to Enter Student Details
+        public string CalculateGrade(float Mark)
+        {
+            string strFinalGrade = "";
+            if (Mark >= 80)
+            {
+                strFinalGrade = " You achieved a Distinction";
+
+            }
+            else if (Mark >= 60)
+            {
+                strFinalGrade = " You achieved a Merit";
+            }
+
+            else if (Mark >= 40)
+            {
+                strFinalGrade = " You achieved a Pass";
+            }
+            else
+            {
+                strFinalGrade = " You must take a resit";
+            }
+
+            return strFinalGrade;
+
+        }
+        //Procedure to Enter Student Details
+        public void DisplayDetails()
+        {
+
+            lbl_Student_Details.Text = strGroup[intLoopCounter] + ":   " + strStudentNumber[intRecord] + ":   " + strStudentName[intRecord];
+            lbl_Average_Mark.Text = fAverage.ToString("#0.00");
+            lbl_Student_Grade.Text = strGrade;
+
+        }
+
+        private void tbResults_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_StudentGrade_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_AverageMark_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            //Procedure to clear all Details
+            
+            {
+                txtStudentName.Text = "";
+                txtStudentNumber.Text = "";
+                cboGroup.Text = "";
+
+                txtEnglish.Text = "";
+                txtMaths.Text = "";
+                txtScience.Text = "";
+            }
         }
     }
 }
