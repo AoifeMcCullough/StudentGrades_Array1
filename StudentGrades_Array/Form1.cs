@@ -56,5 +56,42 @@ namespace StudentGrades_Array
             { Application.Exit();
             }
         }
+
+        private void btnEnterDetails_Click(object sender, EventArgs e)
+        {
+            //Enter Student Details
+            EnterDetails();
+        }
+        //Procedure to Enter Student Details
+        public void EnterDetails()
+        {
+            strStudentName[intRecordCount] = txtStudentName.Text;
+            strStudentNumber[intRecordCount] = txtStudentNumber.Text;
+            strGroup[intRecordCount] = cboGroup.Text;
+
+            intEnglish[intRecordCount] = Convert.ToInt32(txtEnglish.Text);
+            intMaths[intRecordCount] = Convert.ToInt32(txtMaths.Text);
+            intScience[intRecordCount] = Convert.ToInt32(txtScience.Text);
+
+            //Increase Counter
+            intRecordCount++;
+
+            //Display Message
+            MessageBox.Show("Info Saved");
+
+            //Clear Form
+            ClearDetails();
+        }
+        //Procedure to clear all Details
+        public void ClearDetails()
+        {
+            txtStudentName.Text = "";
+            txtStudentNumber.Text = "";
+            cboGroup.Text = "";
+
+            txtEnglish.Text = "";
+            txtMaths.Text = "";
+            txtScience.Text = "";
+        }
     }
 }
